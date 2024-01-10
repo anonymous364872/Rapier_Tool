@@ -4,7 +4,7 @@
 
 Rapier is a command-line tool designed for API black-box vulnerability testing. It captures API traffic via browser proxy and conducts deep recognition and mutation of API parameters in a tree structure. Additionally, Rapier incorporates various optimization strategies to enhance the precision and efficiency of API vulnerability testing.
 
-![img_v3_026v_ca99f2bf-8467-4714-b7aa-ab4fd605ba8g](https://github.com/anonymous364872/Rapier_Tool/assets/156177920/c6874b71-0686-419f-b5cb-d51e90c6b9d5)
+![img_v3_026v_ca99f2bf-8467-4714-b7aa-ab4fd605ba8g](https://github.com/anonymous364872/Rapier_Tool/assets/156177920/1690957a-a56d-4f3b-b81d-ef2d1bb87652)
 
 
 # Vulnerabilities Reported by Rapier
@@ -31,7 +31,7 @@ Rapier is a command-line tool designed for API black-box vulnerability testing. 
 
 Rapier supports depth parameter injection, which has a powerful data parsing and mutation algorithm. It can parse common data formats (json, xml, form, etc.) into tree structure, and then mutate the tree according to the rules in poc, including the mutation of leaf nodes and tree structure. After the mutation is complete, the tree structure is restored to the original data format.
 
-![image](https://github.com/anonymous364872/Rapier_Tool/assets/156177920/167abd46-32e2-4b56-b83e-3b8e0f7bfb24)
+<img width="494" alt="image" src="https://github.com/anonymous364872/Rapier_Tool/assets/156177920/fd557ff2-e16f-4be6-bc5a-aaff3dfb8a1f">
 
 
 Rapier automatically optimizes the queue of APIs to be tested. It calculates an efficient testing sequence based on the context relationships of the APIs and a vulnerability probability algorithm. This approach ensures comprehensive coverage of each API function while maximizing the efficiency of vulnerability discovery.
