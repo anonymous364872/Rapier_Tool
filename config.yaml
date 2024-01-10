@@ -1,0 +1,28 @@
+# Global HTTP Packet Sending Configuration
+http:
+  proxy:                                # Proxy used for vulnerability scanning, e.g., http://127.0.0.1:8080
+  read_timeout: 10                      # Timeout for waiting for HTTP response, in seconds, default is 10 seconds
+  max_conns_per_host: 30                # Maximum allowed connections per host, can be increased based on target host performance
+  fail_retries: 0                       # Number of retries on request failure, 0 means no retries
+  max_redirect: 0                       # Maximum number of redirects allowed per request
+  max_resp_body_size: 2097152           # Maximum allowed response size, in bytes, default 2Mb
+  max_qps: 300                          # Maximum number of requests per second
+
+# Passive Proxy Configuration
+mitm:
+  ca_cert: ./ca.crt                     # Path to the CA root certificate
+  ca_key: ./ca.key                      # Path to the CA private key
+  restriction:                          # Resource access restrictions for the proxy, empty items mean no restrictions
+    hostname_allowed: []                # Allowed Hostnames, support formats like t.com, *.t.com
+    hostname_disallowed:                # Disallowed Hostnames, support formats like t.com, *.t.com
+    - '*google*'
+    - '*baidu*'
+    - '*.gov.cn'
+    - '*.edu.cn'
+    port_allowed: []                    # Allowed ports, support formats like: 80, 80-85
+    port_disallowed: []                 # Disallowed ports, support formats like: 80, 80-85
+    path_allowed: []                    # Allowed paths, support formats like: test, *test*
+    path_disallowed: []                 # Disallowed paths, support formats like: test, *test*
+  queue_max_length: 3000                # Queue length limit, can also be understood as the maximum number of requests waiting for scanning, adjust according to memory size
+
+

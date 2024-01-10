@@ -1,0 +1,61 @@
+info:                                 # Basic information section, which the POC author can modify at will.
+  author: test                        # Author
+  name: test                          # Rule name
+  description: test                   # Rule description
+  time: 2022/10/20                    # Writing (modification) time
+  note: test                          # Remarks
+  reference:                          # Related information
+    - test
+
+mutate_rule:                          # Array value, can have multiple groups, they are in an And relationship.
+- 
+  mutate_position:                    # Mutation location, indicating which locations you choose to mutate
+    header_all: false                 # Boolean value, indicating whether to mutate all HTTP headers.
+    header_filter:                    # Array value, you can filter the HTTP headers you want to mutate by parameter name or value,
+    - 
+      args:                           # Integer, can only be 1 or 2, representing parameter name, parameter value.
+      operator:                       # Integer, can only be 1 or 2, representing regular match, string equal
+      value:                          # String, the value you want to filter
+    body_all_leaf_argname: false      # Boolean value, indicating whether to mutate the parameter names of all leaf nodes in the body
+    body_all_leaf_argvalue: false     # Boolean value, indicating whether to mutate the parameter values of all leaf nodes in the body
+    body_leaf_add_node:               # Array value, representing the addition of leaf nodes in the body
+    - 
+      argname:                        # String, representing the parameter name
+      argvalue:                       # String, representing the parameter value
+    body_root_add_node:               # Array value, representing the direct addition of child nodes under the root node of the body
+    - 
+      argname:                        # String, representing the parameter name
+      argvalue:                       # String, representing the parameter value
+    body_filter:                      # Array value, you can filter the body nodes you want to mutate by parameter name or value
+    - 
+      args:                           # Integer, can only be 1 or 2, representing parameter name, parameter value.
+      operator:                       # Integer, can only be 1 or 2, representing regular match, string equal
+      value:                          # String, the value you want to filter
+    body_str: false                   # Boolean value, indicating whether to operate on the entire body string
+    method: false                     # Boolean value, indicating whether to operate on the method
+    netloc: false                     # Boolean value, indicating whether to operate on the network location part of the URL
+    path: false                       # Boolean value, indicating whether to operate on the path
+    query_str:                        # Boolean value, indicating whether to operate on the entire query
+    url:                              # Boolean value, indicating whether to operate on the entire URL, referring to the URL in the HTTP message that does not contain the protocol and domain name
+    query_leaf_argname:               # Boolean value, indicating whether to operate on all query parameter names
+    query_leaf_argvalue:              # Boolean value, indicating whether to operate on all query parameter values
+    query_add_node:                   # Array value, representing the addition of child nodes in the query
+    - 
+      argname:                        # String, representing the parameter name
+      argvalue:                       # String, representing the parameter value
+    query_filter:                     # Array value, you can filter the query nodes you want to mutate by parameter name or value
+    - 
+      args:                           # Integer, can only be 1 or 2, representing parameter name, parameter value.
+      operator:                       # Integer, can only be 1 or 2, representing regular match, string equal
+      value:                          # String, the value you want to filter
+  
+  mutate_way:                         # Array value, mutation method. Represents the method of mutating the selected mutation location, can have multiple groups, they are in an OR relationship
+  - 
+    pos:                              # Integer, can only be 1, 2, or 3, representing insert at end, insert at random position, and replace
+    value:                            # String, representing the value you want
+
+response_check:                       # Array value, output check, used to check if the poc hits, multiple groups are in an OR relationship
+-                                     # Parameters within each group are in an AND relationship
+  status_code:                        # Represents the response status code
+    value:                            # Value of the status code to check
+    operator:                         # Comparison rule, can take values 1, 2, 3, 
